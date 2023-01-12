@@ -6,7 +6,7 @@ import java.util.List;
 public class ToDoServiceStub implements ToDoService {
 
 	public List<String> retrieveToDo(String usr) {
-		return Arrays.asList("Learn Spring MVC", "Learn Spring", "Learn to Dance");
+		return Arrays.asList("Learn Spring MVC", "Learn Spring", "Learn to dance");
 	}
 
 }
