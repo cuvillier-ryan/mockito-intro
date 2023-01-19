@@ -2,6 +2,9 @@ package com.remcee.business;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
+import static org.mockito.BDDMockito.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 import java.util.List;
 
@@ -30,14 +33,16 @@ public class ListTest {
 	}
 	
 	@Test
-	public void letsMockListGet() {
-		List listMock = mock(List.class);
+	public void letsMockListGet_usingBDD() {
 		
-		//Argument Matcher
-		when(listMock.get(anyInt())).thenReturn("in28Minutes");
+		//Given
+		List <String> listMock = mock(List.class);
+		given(listMock.get(anyInt())).willReturn("in28Minutes");
 		
-		assertEquals("in28Minutes", listMock.get(0));
-		assertEquals("in28Minutes", listMock.get(1));
+		String firstElement = listMock.get(0);
+		
+		//Then
+		assertThat(firstElement, equalTo("in28Minutes"));
 	}
 	
 	@Test(expected=RuntimeException.class)
