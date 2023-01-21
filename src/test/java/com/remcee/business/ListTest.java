@@ -39,6 +39,7 @@ public class ListTest {
 		List <String> listMock = mock(List.class);
 		given(listMock.get(anyInt())).willReturn("in28Minutes");
 		
+		//When
 		String firstElement = listMock.get(0);
 		
 		//Then
